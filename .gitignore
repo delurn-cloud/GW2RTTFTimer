@@ -1,0 +1,18 @@
+# Visual Studio
+.vs/
+*.user
+
+# Build output
+bin/
+obj/
+
+# Installer / publish artifacts
+*.exe
+*.msi
+*.zip
+
+# Local-only installer script
+/GW2RTTFTimer.iss
+
+# Local-only publish profile user file
+*.pubxml.user

@@ -1,0 +1,128 @@
+﻿<Window x:Class="GW2RTTFTimer.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d"
+        Title="GW2 RTTF Timer"
+        Width="230"
+        Height="160"
+        MinWidth="230"
+        MinHeight="160"
+        MaxWidth="230"
+        MaxHeight="160"
+        WindowStyle="None"
+        ResizeMode="NoResize"
+        AllowsTransparency="True"
+        Background="Transparent"
+        Topmost="True"
+        ShowActivated="False"
+        ShowInTaskbar="True"
+        FontFamily="Segoe UI">
+    <Window.Resources>
+        <SolidColorBrush x:Key="Brush.Surface" Color="#10141B"/>
+        <SolidColorBrush x:Key="Brush.SurfaceReady" Color="#151B24"/>
+        <SolidColorBrush x:Key="Brush.Text" Color="#F4F7FB"/>
+        <SolidColorBrush x:Key="Brush.Muted" Color="#C9D2DE"/>
+        <SolidColorBrush x:Key="Brush.Border" Color="#F4F7FB"/>
+        <SolidColorBrush x:Key="Brush.BorderWarn" Color="#FFFFFF"/>
+        <SolidColorBrush x:Key="Brush.Track" Color="#3A4452"/>
+        <SolidColorBrush x:Key="Brush.Fill" Color="#F4F7FB"/>
+    </Window.Resources>
+
+    <Border x:Name="RootBorder"
+            Margin="8"
+            Padding="14"
+            CornerRadius="14"
+            Background="{StaticResource Brush.Surface}"
+            BorderBrush="{StaticResource Brush.Border}"
+            BorderThickness="3"
+            MouseLeftButtonDown="RootBorder_MouseLeftButtonDown">
+        <Border.Effect>
+            <DropShadowEffect BlurRadius="16" ShadowDepth="2" Opacity="0.35"/>
+        </Border.Effect>
+
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+
+            <Grid Grid.Row="0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+
+                <TextBlock Text="RTTF"
+                           Grid.Column="0"
+                           Foreground="{StaticResource Brush.Muted}"
+                           FontSize="15"
+                           FontWeight="SemiBold"
+                           VerticalAlignment="Center"/>
+                <Button x:Name="QuitButton"
+                        Grid.Column="1"
+                        Content="Quit"
+                        Width="34"
+                        Height="22"
+                        Margin="0,0,6,0"
+                        Padding="0"
+                        Foreground="{StaticResource Brush.Text}"
+                        Background="{StaticResource Brush.Track}"
+                        BorderBrush="{StaticResource Brush.Muted}"
+                        BorderThickness="1"
+                        FontSize="10"
+                        FontWeight="SemiBold"
+                        Click="QuitButton_Click"/>
+                <Button x:Name="HideButton"
+                        Grid.Column="2"
+                        Content="X"
+                        Width="22"
+                        Height="22"
+                        Padding="0"
+                        Foreground="{StaticResource Brush.Text}"
+                        Background="{StaticResource Brush.Track}"
+                        BorderBrush="{StaticResource Brush.Muted}"
+                        BorderThickness="1"
+                        FontSize="11"
+                        FontWeight="Bold"
+                        Click="HideButton_Click"/>
+            </Grid>
+
+            <TextBlock x:Name="TimerText"
+                       Grid.Row="1"
+                       Text="10:00"
+                       Foreground="{StaticResource Brush.Text}"
+                       FontSize="39"
+                       FontWeight="Bold"
+                       HorizontalAlignment="Center"
+                       VerticalAlignment="Center"/>
+
+            <Border x:Name="ProgressTrack"
+                    Grid.Row="2"
+                    Height="22"
+                    CornerRadius="6"
+                    Background="{StaticResource Brush.Track}"
+                    ClipToBounds="True"
+                    SizeChanged="ProgressTrack_SizeChanged">
+                <Rectangle x:Name="ProgressFill"
+                           Fill="{StaticResource Brush.Fill}"
+                           HorizontalAlignment="Left"
+                           RadiusX="6"
+                           RadiusY="6"
+                           Width="0"/>
+            </Border>
+
+            <TextBlock x:Name="HintText"
+                       Grid.Row="3"
+                       Text="F8 reset   F11 hide"
+                       Foreground="{StaticResource Brush.Muted}"
+                       FontSize="10"
+                       HorizontalAlignment="Center"
+                       Margin="0,8,0,0"/>
+        </Grid>
+    </Border>
+</Window>

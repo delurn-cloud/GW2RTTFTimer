@@ -1,0 +1,4 @@
+<Solution>
+  <Project Path="GW2RTTFTimer.csproj" />
+  <Project Path="GW2TimerCore\GW2TimerCore.csproj" />
+</Solution>
